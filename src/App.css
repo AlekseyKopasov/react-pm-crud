@@ -1,38 +1,74 @@
-.App {
-  text-align: center;
+h1 svg {
+  width: 56px;
+  height: 56px;
+  margin: 0 10px;
+  fill: brown;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+textarea {
+  padding-right: 25px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+textarea.form-control {
+  min-height: 130px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.form-floating button {
+  width: auto;
+  background-color: transparent;
+  border: none;
 }
 
-.App-link {
-  color: #61dafb;
+.form-floating svg {
+  fill: darkred;
+  transition: fill 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form-floating button:hover svg,
+.form-floating button:focus {
+  fill: #ffffff;
+}
+
+.btn {
+  width: calc(100% / 2 - 15px / 2);
+  margin-right: 15px;
+}
+
+.btn:last-child {
+  margin-right: 0;
+}
+
+.list-text {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 25px;
+}
+
+.list-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 1px;
+  height: 100%;
+  background-color: #cecece;
+}
+
+.list-group-item .btn {
+  width: auto;
+  border: none;
+  align-self: flex-start;
+}
+
+.list-group-item .btn:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.list-group-item span:first-child {
+  margin-right: 10px;
+  font-weight: 600;
 }
