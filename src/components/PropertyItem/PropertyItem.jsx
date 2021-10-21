@@ -1,7 +1,7 @@
-const PropertyItem = () => {
+const PropertyItem = (props) => {
   return (
     <li className="list-group-item d-flex align-items-center justify-content-between">
-      <span className="list-text">A second link item</span>
+      <span className="list-text">{ props.text }</span>
 
       <button type="button" className="btn btn-outline-danger" title="Удалить из списка">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

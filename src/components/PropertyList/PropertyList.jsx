@@ -1,4 +1,4 @@
-import PropertyItem from '../PropertyItem/PropertyItem'
+// import PropertyItem from '../PropertyItem/PropertyItem';
 
 const PropertyList = () => {
   return (
@@ -7,20 +7,22 @@ const PropertyList = () => {
         <div className="col-6">
           <h2 className="text-center">Plus</h2>
           <ul className="list-group list-group-numbered">
-            <PropertyItem />
-            <PropertyItem />
-            <PropertyItem />
+            {/*{ props.properties.map(p => {*/}
+            {/*    if (p.type === 'plus') {*/}
+            {/*      <PropertyItem text={p.propertyText} />*/}
+            {/*    }*/}
+            {/*  }) }*/}
           </ul>
         </div>
 
         <div className="col-6">
           <h2 className="text-center">Minus</h2>
           <ul className="list-group list-group-numbered">
-            <PropertyItem />
-            <PropertyItem />
-            <PropertyItem />
-            <PropertyItem />
-            <PropertyItem />
+            {/*{ props.properties.map(p => {*/}
+            {/*  if (p.type === 'minus') {*/}
+            {/*    <PropertyItem text={p.propertyText} />*/}
+            {/*  }*/}
+            {/*}) }*/}
           </ul>
         </div>
       </div>

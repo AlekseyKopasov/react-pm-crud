@@ -1,6 +1,5 @@
 import './App.css'
-import AddProperty from './components/PropertyTextarea/PropertyTextarea'
-import DistributeButtons from './components/DistributeButtons/DistributeButtons'
+import CreatePropertyContainer from './components/CreateProperty/CreatePropertyContainer'
 import PropertyList from './components/PropertyList/PropertyList'
 
 function App() {
@@ -20,8 +19,7 @@ function App() {
         </div>
       </div>
 
-      <AddProperty />
-      <DistributeButtons />
+      <CreatePropertyContainer />
       <PropertyList />
     </div>
   )
