@@ -1,23 +1,32 @@
 import React from 'react'
 
 const PropertyItem = (props) => {
-  const deleteItem = (propertyId) => {
-    props.deletePropertyItem(propertyId)
+  const deleteHandler = (propertyId) => {
+    props.deleteHandler(propertyId)
   }
 
-  const moveItem = (propertyId, propertyType) => {
-    props.movePropertyItem(propertyId, propertyType)
+  const moveHandler = (propertyId, propertyType) => {
+    props.moveHandler(propertyId, propertyType)
+  }
+
+  const editHandler = (evt, propertyId) => {
+    let propertyText = evt.target.textContent
+    console.log(propertyText)
+    // props.editPropertyItem(propertyId, propertyText)
   }
 
   return (
-    <li className="list-group-item d-flex align-items-center justify-content-between">
+    <li
+      className="list-group-item d-flex align-items-center justify-content-between"
+      onDoubleClick={(evt) => {editHandler(evt, props.item.id)}}
+    >
       <span className="list-text">{ props.item.propertyText }</span>
 
       <button
         type="button"
         className="btn btn-outline-danger"
         title="Удалить из списка"
-        onClick={ () => {deleteItem(props.item.id)} }
+        onClick={ () => {deleteHandler(props.item.id)} }
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
              className="bi bi-x" viewBox="0 0 16 16">
@@ -30,7 +39,7 @@ const PropertyItem = (props) => {
         type="button"
         className="btn btn-outline-success"
         title={props.type === "plus" ? "Перенести в Отрицательное" : "Перенести в Положительное"}
-        onClick={ () => {moveItem(props.id, props.type)} }
+        onClick={ () => {moveHandler(props.item.id, props.type)} }
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
              className="bi bi-arrow-bar-right" viewBox="0 0 16 16">

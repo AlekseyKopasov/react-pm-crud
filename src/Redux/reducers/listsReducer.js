@@ -1,6 +1,6 @@
-const SHOW_PROPERTY_ITEM = 'SHOW_PROPERTY_ITEM';
 const DELETE_PROPERTY_ITEM = 'DELETE_PROPERTY_ITEM';
 const MOVE_PROPERTY_ITEM = 'MOVE_PROPERTY_ITEM';
+const EDIT_PROPERTY_ITEM = 'EDIT_PROPERTY_ITEM';
 const UPDATE_NEW_PROPERTY_TEXT = 'UPDATE_NEW_PROPERTY_TEXT';
 const DELETE_PROPERTY_TEXT = 'DELETE_PROPERTY_TEXT';
 const ADD_NEW_PROPERTY = 'ADD_NEW_PROPERTY';
@@ -17,25 +17,34 @@ const initialState = {
 
 const listsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SHOW_PROPERTY_ITEM:
-      return {
-        ...state.properties
-      }
     case DELETE_PROPERTY_ITEM:
       return {
-        // ...state.properties.map(item => {
-        //   if (item.id === action.propertyId) {
-        //     delete state.item
-        //   }
-        // })
+        ...state,
+        properties: state.properties.filter(item => item.id !== action.propertyId)
+      }
+    case EDIT_PROPERTY_ITEM:
+      return {
+        ...state,
+        properties: state.properties.map(item => {
+          if (item.id === action.propertyId) {
+            item.propertyText = state.newPropertyText
+          }
+          return item
+        })
       }
     case MOVE_PROPERTY_ITEM:
       return {
-        // ...state.properties.map(item => {
-        //   if (item.id === action.propertyId) {
-        //     item.type = action.propertyType
-        //   }
-        // })
+        ...state,
+        properties: state.properties.map(item => {
+          if (item.id === action.propertyId) {
+            if (action.propertyType === 'plus') {
+              item.type = 'minus'
+            } else {
+              item.type = 'plus'
+            }
+          }
+          return item
+        })
       }
     case UPDATE_NEW_PROPERTY_TEXT:
       return {
@@ -63,11 +72,11 @@ const listsReducer = (state = initialState, action) => {
   }
 };
 
-export const showPropertyItemAC = () => ({ type: SHOW_PROPERTY_ITEM });
+export const deletePropertyItemAC = (propertyId) => ({ type: DELETE_PROPERTY_ITEM, propertyId });
 
-export const deletePropertyItemAC = (propertyId) => ({ type: DELETE_PROPERTY_ITEM });
+export const movePropertyItemAC = (propertyId, propertyType) => ({ type: MOVE_PROPERTY_ITEM, propertyId, propertyType });
 
-export const movePropertyItemAC = (propertyId, propertyType) => ({ type: MOVE_PROPERTY_ITEM });
+export const editPropertyItemAC = (propertyId, propertyText) => ({ type: EDIT_PROPERTY_ITEM, propertyId, propertyText });
 
 export const addNewPropertyAC = (propertyType) => {
   return {
@@ -84,6 +93,5 @@ export const updateNewPropertyTextAC = (text) => {
     text
   }
 };
-
 
 export default listsReducer;

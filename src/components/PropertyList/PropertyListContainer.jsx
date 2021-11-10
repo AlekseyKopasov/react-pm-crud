@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import PropertyList from './PropertyList';
+import {deletePropertyItemAC, editPropertyItemAC, movePropertyItemAC} from '../../Redux/reducers/listsReducer'
 
 const mapStateToProps = (state) => {
   return {
@@ -9,10 +10,15 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // showPropertyItem() {
-    //   dispatch(showPropertyItemAC());
-    // },
-
+    deletePropertyItem(propertyId) {
+      dispatch(deletePropertyItemAC(propertyId));
+    },
+    movePropertyItem(propertyId, propertyType) {
+      dispatch(movePropertyItemAC(propertyId, propertyType));
+    },
+    editPropertyItem(propertyId, propertyText) {
+      dispatch(editPropertyItemAC(propertyId, propertyText));
+    },
   }
 };
 

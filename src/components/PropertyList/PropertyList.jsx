@@ -9,7 +9,13 @@ const PropertyList = (props) => {
           <ul className="list-group list-group-numbered">
             { props.properties.map(p => {
               if (p.type === 'plus') {
-                  return  <PropertyItem item={p} key={p.id} type={p.type}/>
+                  return  <PropertyItem
+                    item={p}
+                    key={p.id}
+                    type={p.type}
+                    deleteHandler={props.deletePropertyItem}
+                    moveHandler={props.movePropertyItem}
+                  />
                 }
                 return null;
               }) }
@@ -21,8 +27,14 @@ const PropertyList = (props) => {
           <ul className="list-group list-group-numbered">
           { props.properties.map(p => {
               if (p.type === 'minus') {
-                  return  <PropertyItem item={p} key={p.id} type={p.type} />
-                }
+                return  <PropertyItem
+                  item={p}
+                  key={p.id}
+                  type={p.type}
+                  deleteHandler={props.deletePropertyItem}
+                  moveHandler={props.movePropertyItem}
+                />
+              }
                 return null;
               }) }
           </ul>
