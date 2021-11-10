@@ -1,8 +1,8 @@
-import {combineReducers, createStore} from 'redux'
-import propertyReducer from './reducers/propertyReducer'
+import {combineReducers, createStore} from 'redux';
+import listsReducer from './reducers/listsReducer';
 
 const reducers = combineReducers({
-  property: propertyReducer
+  lists: listsReducer,
 });
 
 const store = createStore(reducers);

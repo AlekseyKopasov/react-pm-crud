@@ -10,4 +10,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'));
 
-window.store = store.getState().property.properties;
+window.store = store.getState().lists;

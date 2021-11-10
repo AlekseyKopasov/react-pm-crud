@@ -1,6 +1,6 @@
-import './App.css'
-import CreatePropertyContainer from './components/CreateProperty/CreatePropertyContainer'
-import PropertyList from './components/PropertyList/PropertyList'
+import './App.css';
+import TextareaContainer from './components/CreateProperty/TextareaContainer';
+import PropertyListContainer from './components/PropertyList/PropertyListContainer';
 
 function App() {
   return (
@@ -19,8 +19,8 @@ function App() {
         </div>
       </div>
 
-      <CreatePropertyContainer />
-      <PropertyList />
+      <TextareaContainer />
+      <PropertyListContainer />
     </div>
   )
 }
