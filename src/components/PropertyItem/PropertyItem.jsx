@@ -9,17 +9,8 @@ const PropertyItem = (props) => {
     props.moveHandler(propertyId, propertyType)
   }
 
-  const editHandler = (evt, propertyId) => {
-    let propertyText = evt.target.textContent
-    console.log(propertyText)
-    // props.editPropertyItem(propertyId, propertyText)
-  }
-
   return (
-    <li
-      className="list-group-item d-flex align-items-center justify-content-between"
-      onDoubleClick={(evt) => {editHandler(evt, props.item.id)}}
-    >
+    <li className="list-group-item d-flex align-items-center justify-content-between">
       <span className="list-text">{ props.item.propertyText }</span>
 
       <button
