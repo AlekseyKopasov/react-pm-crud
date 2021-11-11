@@ -10,7 +10,7 @@ const PropertyItem = (props) => {
   }
 
   return (
-    <li className="list-group-item d-flex align-items-center justify-content-between">
+    <li className="list-group-item d-flex align-items-center justify-content-between" data-id={props.item.id}>
       <span className="list-text">{ props.item.propertyText }</span>
 
       <button

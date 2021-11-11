@@ -25,12 +25,8 @@ const listsReducer = (state = initialState, action) => {
     case EDIT_PROPERTY_ITEM:
       return {
         ...state,
-        properties: state.properties.map(item => {
-          if (item.id === action.propertyId) {
-            item.propertyText = state.newPropertyText
-          }
-          return item
-        })
+        newPropertyText: action.propertyText,
+        properties: state.properties.filter(item => item.id !== +action.propertyId)
       }
     case MOVE_PROPERTY_ITEM:
       return {

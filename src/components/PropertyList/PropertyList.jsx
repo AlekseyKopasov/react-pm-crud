@@ -2,8 +2,10 @@ import PropertyItem from '../PropertyItem/PropertyItem';
 
 const PropertyList = (props) => {
   const editHandler = (evt) => {
-    const propertyText = evt.target.closest('.list-text').textContent
-    // props.editPropertyItem(propertyId, propertyText)
+    let propertyText = evt.target.closest('.list-text').textContent
+    let propertyId = evt.target.closest('.list-group-item').dataset.id
+
+    props.editPropertyItem(propertyId, propertyText)
   }
 
   return (
